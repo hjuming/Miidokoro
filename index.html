@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>札幌。御居所｜中秋節快樂</title>
+
+    <!-- 網頁分享資訊 -->
+    <meta name="description" content="來自札幌・御居所的中秋祝福。立即查看我們的專屬優惠，並讓 AI 旅程規劃助理為您打造獨一無二的北海道之旅！">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://www.miidokoro.com/">
+    <meta property="og:title" content="札幌。御居所｜中秋節快樂">
+    <meta property="og:description" content="來自札幌・御居所的中秋祝福。立即查看我們的專屬優惠，並讓 AI 旅程規劃助理為您打造獨一無二的北海道之旅！">
+    <meta property="og:image" content="https://i.urusai.cc/v1xGt.jpeg">
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="http://www.miidokoro.com/">
+    <meta property="twitter:title" content="札幌。御居所｜中秋節快樂">
+    <meta property="twitter:description" content="來自札幌・御居所的中秋祝福。立即查看我們的專屬優惠，並讓 AI 旅程規劃助理為您打造獨一無二的北海道之旅！">
+    <meta property="twitter:image" content="https://i.urusai.cc/v1xGt.jpeg">
+
+    <!-- 引入 Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 引入 Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* 使用 Noto Serif TC 作為主要字體 */
+        body {
+            font-family: 'Noto Serif TC', serif;
+            background-image: url('https://i.urusai.cc/v1xGt.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* 固定背景，滾動時不移動 */
+        }
+        /* 卡片玻璃擬態效果 */
+        .glass-card {
+            background: rgba(23, 23, 23, 0.6); /* 半透明深色背景 */
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen p-4">
+
+    <!-- 主卡片容器 -->
+    <div class="glass-card w-full max-w-md mx-auto rounded-2xl shadow-2xl text-white p-8 md:p-10 text-center overflow-hidden">
+        
+        <!-- 旅店 Logo -->
+        <img src="https://i.urusai.cc/jR46f.jpeg" alt="札幌。御居所 Logo" class="w-24 h-24 mx-auto mb-6 rounded-full border-2 border-white/50 shadow-lg">
+
+        <!-- 賀詞 -->
+        <h1 class="text-3xl md:text-4xl font-bold tracking-wider mb-2">月圓人團圓</h1>
+        <p class="text-lg md:text-xl font-semibold mb-6">中秋佳節愉快</p>
+        <p class="text-sm text-gray-300 mb-4">札幌・御居所 敬賀</p>
+        
+        <!-- 分隔線 -->
+        <hr class="border-white/20 my-8">
+
+        <!-- 優惠資訊區塊 -->
+        <a href="http://www.miidokoro.com" target="_blank" class="block rounded-xl overflow-hidden group">
+            <div class="relative w-full aspect-video bg-cover bg-center shadow-lg group-hover:scale-105 transition-transform duration-300" style="background-image: url('https://i.urusai.cc/R7YL.jpeg');">
+                <div class="absolute inset-0 bg-black/50 flex flex-col items-center justify-center p-4">
+                    <h2 class="text-xl font-bold tracking-widest text-amber-300 mb-3">線上訂房專屬優惠</h2>
+                    <div class="mt-2 border-2 border-dashed border-amber-400/50 rounded-lg p-3 inline-block">
+                        <p class="text-2xl font-bold tracking-widest text-amber-300">MIIDOKORO</p>
+                    </div>
+                    <p class="text-gray-200 text-sm pt-4">加入會員即享折扣・透過官網輕鬆查詢與預約</p>
+                </div>
+            </div>
+        </a>
+
+        <!-- 行動呼籲按鈕 -->
+        <a href="http://www.miidokoro.com" target="_blank" 
+           class="inline-block bg-amber-400 text-slate-800 font-bold py-3 px-8 rounded-lg mt-8 hover:bg-amber-300 transition-all duration-300 shadow-lg hover:shadow-amber-400/30">
+            立即預訂你的北海道之旅
+        </a>
+
+        <!-- 分隔線 -->
+        <hr class="border-white/20 my-8">
+
+        <!-- Gemini API 功能區塊 -->
+        <div class="space-y-4">
+            <h2 class="text-lg font-bold tracking-widest text-amber-300 mb-3">✨ AI 旅程規劃助理</h2>
+            <p class="text-sm text-gray-300 mb-4">對北海道的秋季之旅有什麼想法嗎？<br>讓 AI 為您提供靈感！</p>
+            <textarea id="prompt-input" class="w-full h-24 p-3 bg-gray-900/50 rounded-lg border border-white/20 focus:ring-amber-400 focus:border-amber-400 transition-all text-white placeholder-gray-400" placeholder="例如：請推薦五個適合秋季的札幌周邊景點"></textarea>
+            <button id="generate-btn" class="w-full bg-slate-700 text-amber-300 font-bold py-3 px-8 rounded-lg hover:bg-slate-600 transition-all duration-300 flex items-center justify-center gap-2">
+                <svg id="loader" class="animate-spin h-5 w-5 text-white hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+                <span>獲取旅遊靈感</span>
+            </button>
+            <div id="result-container" class="mt-4 p-4 bg-black/30 rounded-lg text-left text-gray-200 hidden min-h-[100px] whitespace-pre-wrap"></div>
+        </div>
+        
+        <!-- 頁尾 -->
+        <div class="mt-10 pt-6 border-t border-white/20 text-xs text-gray-400 space-y-3">
+            <div class="space-y-1">
+                <p>Miidokoro House Hotel</p>
+                <p>☎️ +81 11-521-5000</p>
+                <p>🏠 日本北海道〒064-0914 札幌市中央区南14条西14丁目1番35号</p>
+                <a href="http://www.miidokoro.com" target="_blank" class="hover:text-amber-300 transition-colors duration-300">www.miidokoro.com</a>
+            </div>
+            <p class="pt-2">&copy; 2025 Sapporo Miidokoro. All Rights Reserved.</p>
+        </div>
+
+    </div>
+
+    <script>
+        const generateBtn = document.getElementById('generate-btn');
+        const promptInput = document.getElementById('prompt-input');
+        const resultContainer = document.getElementById('result-container');
+        const loader = document.getElementById('loader');
+
+        /**
+         * Calls the Gemini API with exponential backoff for retries.
+         * @param {string} prompt The user's prompt.
+         * @param {number} maxRetries The maximum number of retry attempts.
+         * @returns {Promise<string>} The response text from the API.
+         */
+        const callGeminiWithExponentialBackoff = async (prompt, maxRetries = 5) => {
+            const systemPrompt = `你是一位專業且友善的旅遊顧問，服務於位於日本北海道札幌的「札幌・御居所」旅店。
+你的任務是根據用戶的需求，以繁體中文提供北海道的旅遊建議，目的是吸引他們前來住宿。
+請保持熱情、親切的語氣。
+你的回覆應該結構清晰，例如使用標題和項目符號，讓內容易於閱讀。
+請勿提及你是 AI 或語言模型。直接以旅遊顧問的身份提供建議。`;
+            const userQuery = prompt;
+            const apiKey = ""; // API key is provided by the execution environment.
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+
+            const payload = {
+                contents: [{ parts: [{ text: userQuery }] }],
+                systemInstruction: {
+                    parts: [{ text: systemPrompt }]
+                },
+            };
+
+            let delay = 1000; // Start with 1 second delay
+            for (let i = 0; i < maxRetries; i++) {
+                try {
+                    const response = await fetch(apiUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+
+                    if (!response.ok) {
+                        if (response.status >= 500) {
+                            // Retry on server errors
+                            throw new Error(`HTTP error! status: ${response.status}`);
+                        }
+                        const errorData = await response.json();
+                        console.error("API Client Error:", errorData);
+                        return `發生錯誤，請稍後再試。 (${response.status})`;
+                    }
+
+                    const result = await response.json();
+                    const candidate = result.candidates?.[0];
+
+                    if (candidate && candidate.content?.parts?.[0]?.text) {
+                        return candidate.content.parts[0].text;
+                    } else {
+                        console.error("Invalid response structure:", result);
+                        return "抱歉，無法獲取建議，回覆的格式有誤。";
+                    }
+                } catch (error) {
+                    console.error(`Attempt ${i + 1} failed:`, error);
+                    if (i === maxRetries - 1) {
+                        return "抱歉，目前系統忙碌中，請稍後再試。";
+                    }
+                    await new Promise(resolve => setTimeout(resolve, delay));
+                    delay *= 2; // Double the delay for the next retry
+                }
+            }
+            return "抱歉，系統發生未預期的錯誤。";
+        };
+
+        generateBtn.addEventListener('click', async () => {
+            const prompt = promptInput.value.trim();
+            if (!prompt) {
+                resultContainer.textContent = '請先輸入您的旅遊需求喔！';
+                resultContainer.classList.remove('hidden');
+                return;
+            }
+
+            // Show loader and disable button
+            loader.classList.remove('hidden');
+            generateBtn.disabled = true;
+            generateBtn.classList.add('cursor-not-allowed', 'opacity-70');
+            resultContainer.classList.add('hidden');
+
+            try {
+                const resultText = await callGeminiWithExponentialBackoff(prompt);
+                
+                // Basic formatting for better display
+                const formattedText = resultText
+                    .replace(/\*\*(.*?)\*\*/g, '<strong class="font-semibold text-amber-200">$1</strong>') // Bold for **text**
+                    .replace(/\*(.*?)\*/g, '<em>$1</em>'); // Italic for *text*
+                
+                resultContainer.innerHTML = formattedText;
+                resultContainer.classList.remove('hidden');
+            } catch (error) {
+                console.error('Error fetching Gemini response:', error);
+                resultContainer.textContent = '發生錯誤，請稍後再試。';
+                resultContainer.classList.remove('hidden');
+            } finally {
+                // Hide loader and re-enable button
+                loader.classList.add('hidden');
+                generateBtn.disabled = false;
+                generateBtn.classList.remove('cursor-not-allowed', 'opacity-70');
+            }
+        });
+    </script>
+</body>
+</html>
+
