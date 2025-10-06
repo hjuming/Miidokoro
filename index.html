@@ -6,7 +6,7 @@
     <title>札幌。御居所｜中秋節快樂</title>
 
     <!-- 網頁分享資訊 -->
-    <meta name="description" content="來自札幌・御居所的中秋祝福。立即查看我們的專屬優惠，並讓 AI 旅程規劃助理為您打造獨一無二的北海道之旅！">
+    <meta name="description" content="來自札幌・御居所的中秋祝福。立即查看我們的專屬優惠，並讓 北海道旅程規劃助理 為您打造獨一無二的北海道之旅！">
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="http://www.miidokoro.com/">
@@ -84,8 +84,8 @@
 
         <!-- Gemini API 功能區塊 -->
         <div class="space-y-4">
-            <h2 class="text-lg font-bold tracking-widest text-amber-300 mb-3">✨ AI 旅程規劃助理</h2>
-            <p class="text-sm text-gray-300 mb-4">對北海道的秋季之旅有什麼想法嗎？<br>讓 AI 為您提供靈感！</p>
+            <h2 class="text-lg font-bold tracking-widest text-amber-300 mb-3">✨ 北海道旅程規劃</h2>
+            <p class="text-sm text-gray-300 mb-4">對北海道旅遊有什麼想法嗎？<br>讓 御居所AI客服 為您提供靈感！</p>
             <textarea id="prompt-input" class="w-full h-24 p-3 bg-gray-900/50 rounded-lg border border-white/20 focus:ring-amber-400 focus:border-amber-400 transition-all text-white placeholder-gray-400" placeholder="例如：請推薦五個適合秋季的札幌周邊景點"></textarea>
             <button id="generate-btn" class="w-full bg-slate-700 text-amber-300 font-bold py-3 px-8 rounded-lg hover:bg-slate-600 transition-all duration-300 flex items-center justify-center gap-2">
                 <svg id="loader" class="animate-spin h-5 w-5 text-white hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
@@ -127,9 +127,9 @@
 你的任務是根據用戶的需求，以繁體中文提供北海道的旅遊建議，目的是吸引他們前來住宿。
 請保持熱情、親切的語氣。
 你的回覆應該結構清晰，例如使用標題和項目符號，讓內容易於閱讀。
-請勿提及你是 AI 或語言模型。直接以旅遊顧問的身份提供建議。`;
+請勿提及你是 AI 或語言模型。直接以北海道旅遊顧問的身份提供建議。`;
             const userQuery = prompt;
-            const apiKey = ""; // API key is provided by the execution environment.
+            const apiKey = "AIzaSyCtaOQj1zvzG0V6yo23xZG7pH0HRxwAkIQ"; 
             const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
 
             const payload = {
@@ -149,6 +149,10 @@
                     });
 
                     if (!response.ok) {
+                        // 如果 API 金鑰無效或未填寫，Google 會回傳 403 錯誤。
+                        if (response.status === 403) {
+                             return `發生權限錯誤 (403)。請檢查您的 API 金鑰是否已正確填寫。`;
+                        }
                         if (response.status >= 500) {
                             // Retry on server errors
                             throw new Error(`HTTP error! status: ${response.status}`);
